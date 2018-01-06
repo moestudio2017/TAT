@@ -1,0 +1,154 @@
+<!--/ドキュメントタイプ指定/-->
+<!doctype html>
+<html>
+<head>
+<!--/meta情報の設定/-->
+<!--/文字コード指定/-->
+	<meta charset="UTF-8">
+<!--/タグ指定/-->
+	<meta name="keywords" content="web, template , 縦書き , テンプレート , css, 深窓の姫君 , tateno , moestudio , 2018">
+	<meta name="description" content="縦書き授業用ノートを再現したwebテンプレート">
+	<meta name="robots" content="noindex,nofollow">
+	<meta name="author" content="深窓の姫君">
+<!--/モバイル用追加設定/-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--/ファイルの読み込み/-->
+	<link rel="stylesheet" href="css/tateno2.2.min.css">
+	<script type="text/javascript" src="js/jquery-3.2.1.slim.min.js"></script>
+	<script type="text/javascript" src="js/chihiro2.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.lettering.js"></script>
+<!--/タイトルの設定/-->
+	<title>縦書きと横書き</title>
+<!--/文字を分割して表示位置を調整する/-->
+<!--/textで指定した文字は一文字ごとにspanで分割されて文字を揃わせる-->
+<script>
+    $(document).ready(function(){
+	    $("#text h1").lettering();
+	    $("#text h2").lettering();
+	    $("#text h3").lettering();
+	    $("#text h4").lettering();
+	    $("#text h5").lettering();
+	    $("#text h6").lettering();
+	    $("#text p").lettering();});
+</script>
+</head>
+<!--/設定終了/-->
+
+<!--/ここから描画開始/-->
+<body>
+    <div id="text" class="note">
+        <div class="note__header">
+            <a href="https://moestudio2017.github.io/">紹介サイトに戻る</a>　　
+            <a href="https://ja.wikipedia.org/wiki/%E7%B8%A6%E6%9B%B8%E3%81%8D%E3%81%A8%E6%A8%AA%E6%9B%B8%E3%81%8D">原稿</a>
+        </div>
+        <div class="note__box">
+            <div class="top"></div>
+            <div class="middle">
+                <h3 class="char__space-0 title">横書きと縦書き</h3>
+                <h5 class="char__space-0 author">ウィキペデイア</h5><br>
+                <h4 class="char__space-1 text-imp">・文書</h4><br>
+                <p class="char__space-4">縦書き</p>
+                <p class="char__space-4">横書き</p>
+                <p class="char__space-5">↓</p>
+                <p class="char__space-2 line-bd marker-blue">漢文に倣ったスタイル</p><br><br>
+                <h4 class="char__space-1">・日本の歴史的経緯</h4><br>
+                <h5 class="char__space-2 line-cut marker-green">・江戸時代</h5>
+                <p class="char__space-4">横書きは蘭学導入の後</p><br>
+                <h5 class="char__space-2 line-2bd marker-pink">・戦時中</h5><br>
+                <p class="char__space-4">一行一文字の縦書き</p>
+                <p class="char__space-4">右横書き</p><br>
+                <h5 class="char__space-2 line-dot marker-orange">・戦後</h5><br>
+                <p style="display: inline;" class="char__space-4">ＧＨＱ</p><p class="char__space-0 marker-yellow bg">漢字廃止運動</p>
+                <p class="char__space-4">戦時中の書き方の衰退</p>
+            </div>
+            <div class="bottom">
+                <br><br><br><br><br><br><br><br><br><br><br>
+                <h6 class="ballpen-blue">「蘭学」</h6>
+                <h6 class="text-sub ballpen-black">江戸時代にオランダを通じて日本に入ってきたヨーロッパの学術文化技術の総称</h6>
+                <br><br><br>
+                <h6 class="text-sub">←今読むと非常に読みづらい</h6><br>
+                <h6 class="text-sub">現代の書き方は当時の革新</h6>
+                <h6 class="text-sub pen-red">←保守的</h6>
+            </div>
+        </div>
+    </div>
+
+    <div id="text" class="note">
+        <div class="note__header"></div>
+        <div class="note__box">
+            <div class="top"></div>
+            <div class="middle"><br>
+                <h4 class="char__space-1 text-imp">・字体</h4><br>
+                <p class="char__space-2">漢字</p>
+                <p class="char__space-3">活字体は字体の変化なし、手書きはバラバラ</p><br>
+                <p class="char__space-2">仮名</p>
+                <p class="char__space-3">小書き仮名</p>
+                <p class="char__space-4">縦書きは右側</p>
+                <p class="char__space-4">横書きは下側</p><br>
+                <p class="char__space-3">音引き（ー）</p>
+                <p class="char__space-4">縦書きは縦線</p>
+                <p class="char__space-4">横書きは横線</p>
+                <p class="char__space-4 text-imp line-bd marker-pink">合略仮名は縦書きのみ</p><br><br>
+                <p class="char__space-2">約物</p>
+                <p class="char__space-3">句読点</p>
+                <p class="char__space-4">縦書きは全角枡の右上</p>
+                <p class="char__space-4">横書きは全角枡の左下</p><br>
+                <p class="char__space-3">括弧</p>
+                <p class="char__space-4">九十度回転</p><br>
+                <p class="char__space-3">小数点</p>
+                <p class="char__space-4">横書きはピリオド</p>
+                <p class="char__space-4">縦書きは中黒</p>
+            </div>
+            <div class="bottom">
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <h5 class="pen-red">←置き換えられやすい！</h5>
+            </div>
+        </div>
+    </div>    
+
+    <div id="text" class="note">
+        <div class="note__header"></div>
+        <div class="note__box">
+            <div class="top"></div>
+            <div class="middle"><br><br>
+                <p class="char__space-3">ダッシュ</p>
+                <p class="char__space-4">縦書きは縦線</p>
+                <p class="char__space-4">横書きは横線</p><br>
+                <p class="char__space-3">リーダー</p>
+                <p class="char__space-4">縦書きは中黒を縦</p>
+                <p class="char__space-4">横書きは中黒は横またはピリオドを横</p><br>
+                <p class="char__space-2">英数字</p>
+                <p class="char__space-3">数字</p>
+                <p class="char__space-4">縦書きは漢数字</p>
+                <p class="char__space-4">横書きは算用数字</p>
+                <p class="char__space-3">ローマ字</p>
+                <p class="char__space-4">縦書きは基本仮名のように書くが、九十度回転する時も</p><br><br><br>
+                <h3 class="char__space-3">《中略》</h3>
+            </div>
+            <div class="bottom">
+                <br><br><br><br><br><br><br><br><br><br><br><br>
+                <h6 class="text-sub ballpen-red">※縦書き時に横にして書く組数字が存在する！</h6>
+                <h6 class="text-sub ballpen-green">ＶＳ縦書きの算用数字化</h6>
+            </div>
+        </div>
+    </div>
+    
+    <div id="text" class="note">
+        <div class="note__header"></div>
+        <div class="note__box">
+            <div class="top"></div>
+            <div class="middle"><br>
+            <h4 class="char__space-1 text-imp">・コンピュータ処理では？</h4><br>
+                <p class="char__space-2 marker-orange line-2bd">・左書き強し。</p>
+                <p class="char__space-3 pen-red">∵算用数字の多様</p><br>
+                <h3 class="char__space-5">ＶＳ</h3><br>
+                <p class="char__space-2 marker-pink line-2bd">・国際化</p><br><br><br>
+                <h3 class="char__space-2 text-imp pen-red">～課題～</h3><br>
+                <p class="char__space-3">右横書きと縦書きのサポート</p>
+                
+            </div>
+            <div class="bottom">
+            </div>
+        </div>
+    </div>
+</body>

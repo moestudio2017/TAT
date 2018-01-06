@@ -1,0 +1,346 @@
+/*
+**Name:のぉとていく(Chihiro2.1)
+**Discription:縦書き授業用ノートを再現したwebテンプレート
+**Version:2.1
+**Date:2018/01/01/21:46/
+**Author:深窓の姫君
+**Link:http://moest.0am.jp/
+**Link:https://moestudio2017.github.io/Chihiro/
+**Ad:たてよこwebアワード2017応募作品
+**Link:https://tategaki.github.io/awards/
+*/
+
+/*フォント設定*/
+/*opentypeとwoffサポート*/
+/*フォントはNotoSansMonoCJKjpをサブセット化＆縦書き対応にして改変したものを使用*/
+/*横書き用「monoSansCJKjp」*/
+@font-face{
+    font-family: "monoSansCJKjp";
+    font-style: normal;
+    font-weight: 400;
+    src: url('../font/monoSansCJKjp-Regular.woff') format('woff'),
+         url('../font/monoSansCJKjp-Regular.otf') format('opentype');
+}
+/*縦書き用「monoSansCJKjp-plus」*/
+/*主にノート内とボールペンで使う*/
+/*細めの文字*/
+@font-face{
+    font-family: "monoSansCJKjp-Thin-plus";
+    font-style: normal;
+    font-weight: 400;
+    src: url('../font/monoSansCJKjp-Thin-plus.woff') format('woff'),
+         url('../font/monoSansCJKjp-Thin-plus.otf') format('opentype');}
+
+/*標準の文字*/
+@font-face{
+    font-family: "monoSansCJKjp-plus";
+    font-style: normal;
+    font-weight: 400;
+    src: url('../font/monoSansCJKjp-Regular-plus.woff') format('woff'),
+         url('../font/monoSansCJKjp-Regular-plus.otf') format('opentype');}
+
+/*全体設定・定義*/
+/*フォントの大きさの設定*/
+html {font-size: 20px;}
+body{
+/*余白のリセット*/
+    padding: 0rem;
+    margin: 0rem;
+    -webkit-margin-before: 0rem;
+    -webkit-margin-after: 0rem;
+    -webkit-margin-start: 0rem;
+    -webkit-margin-end: 0rem;
+/*フォント指定(横書き用フォント)*/
+    font-family: "monoSansCJKjp",monospace;
+/*文字の設定*/
+/*フォントサイズ*/
+/*フォントの大きさはhtmlで指定したものと同じ*/
+    font-size: 1.0rem;
+/*行間の指定*/
+    line-height: 1.4;
+/*デフォルトの文字の色*/
+    color: #333333;
+/*改行設定(日本語用の改行形式にする)*/
+    line-break: strict;}
+/*フォントのリセット*/
+h1,h2,h3,h4,h5,h6,p{
+/*余白のリセット(これがないとダメ)*/
+    margin: 0rem;
+    padding: 0rem;
+    -webkit-margin-before: 0rem;
+    -webkit-margin-after: 0rem;
+    -webkit-margin-start: 0rem;
+    -webkit-margin-end: 0rem;
+/*フォントの太さ指定*/
+    font-weight: 400;
+}
+
+/*文字がどれだけの幅をとるかを指定する*/
+h1,h2{line-height: 3.0rem;}
+h3{line-height: 2.0rem;}
+h4,h5,h6,p{line-height: 1.0rem;}
+
+/*textで分割された文字の設定(タグはspanでクラスはchar)*/
+/*h1 フォントサイズ2.7remで3.0rem分のスペース確保*/
+h1 span.char{
+    font-size: 2.7rem;
+    padding-bottom: 0.3rem;}
+/*h2 フォントサイズ2.4remで3.0rem分のスペース確保*/
+h2 span.char{
+    font-size: 2.4rem;
+    padding-bottom: 0.6rem;}
+/*h3 フォントサイズ1.8remで2.0rem分のスペース確保*/
+/*タイトル用(通常はこれを使う)*/
+h3 span.char{
+    font-size: 1.8rem;
+    padding-bottom: 0.2rem;}
+/*h4 フォントサイズ0.9remで1.0分のスペース確保&太字*/
+/*主に見出し用*/
+h4 span.char{
+    font-size: 0.9rem;
+    padding-bottom: 0.1rem;
+    font-weight: 700;}
+
+/*h5 フォントサイズ0.6remで1.0rem分のスペース確保*/
+/*小見出し用*/
+h5 span.char{
+    font-size: 0.6rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;}
+/*h6 フォントサイズ0.5remで1.0rem分のスペース確保*/
+/*補足用で1マスに2文字入れることができる*/
+h6 span.char{
+    font-size: 0.5rem;
+    margin: 0rem;}
+/*p フォントサイズ0.7remで1.0rem分のスペース確保*/
+/*基本的に本文を表示するのに使用する*/
+p span.char{
+    font-size: 0.7rem;
+    margin-top: 0.15rem;
+    margin-bottom: 0.15rem;
+    margin-right: 0rem;
+    margin-left: 0rem;}
+
+/*リンク文字の設定*/
+a {
+    color: #271f89;
+/*リンク文字の色を変えるまでの秒数*/
+    transition: 1.0s;
+/*文字の下線を消す*/
+    text-decoration: none;}
+a:hover{color: #cccccc;}
+a:active{color: #aaaaaa;}
+
+/*ulとliの設定*/
+ul{margin: 0rem;}
+/*ulとulの間を詰める*/
+ul ul{margin-top: 0rem;}
+
+/*ノートの設定*/
+.note{
+/*フォント指定(縦書き対応版フォント)*/
+    font-family: "monoSansCJKjp-plus",monospace;
+/*縦書きにする*/
+    -webkit-writing-mode: vertical-rl;
+    -moz-writing-mode: vertical-rl;
+    -ms-writing-mode: tb-rl;
+    writing-mode: vertical-rl;
+    -webkit-font-feature-settings: 'pkna';
+    font-feature-settings: 'pkna';
+/*ノートのサイズ設定(javascriptによる制御が後で入る)*/
+/*ちなみに一般的な大学ノートは縦置きの状態で横24マス縦30マス(余白分を入れるので実際は33マス)*/
+/*授業用ノートは横配置なので縦横のマスの数が入れ替わる*/
+    height: 24.0rem;
+    width: 33.0rem;
+/*余白設定*/
+/*ノートとノートの間にとるスペース*/
+    margin: 1.0rem;
+/*背景設定*/
+/*画像は72pxのもので右上から配置&文字のサイズと同じになるように調整*/
+    background: url(../img/note.png) repeat top right;
+    background-size: 1.0rem 1.0rem;
+/*もし画像がバグ等で表示されなかったら色表示に切り替える*/
+    background-color: #efebeb;
+/*ノートに線を引く*/
+    border: solid 1px #908d8d;
+/*枠線を指定したサイズの中に収める*/
+    box-sizing: border-box;
+/*文字の行間指定(ここ大事)*/
+    line-height: 1.0rem;
+/*文字列が一行を超えた分は強制的に改行する(改行ルールはすでに日本語対応)*/
+    word-break: break-all;}
+/*コンテンツをまとめるボックス*/
+.note__box {
+/*サイズ設定*/
+/*いらないかもしれない*/
+    width: auto;
+    height: auto;
+    position: relative;
+    right: auto;
+    left: auto;
+    padding: 0rem;}
+/*topには日付などを書く*/
+.top, .middle , .bottom{
+/*サイズ設定*/
+    width: 29.9rem;
+    height: 2.0rem;
+/*ポジション指定*/
+    position: absolute;
+    right: auto;
+    top: 0rem;
+/*余白設定*/
+    padding: 0rem;
+    margin: 0rem;
+/*文字がはみ出す部分は改行*/
+    word-break: break-all;
+/*下部に線を引くことによってノートに線を引く*/
+    border-bottom: solid 1px #908d8d;
+/*下線はノートの罫線に合うように調整*/
+    box-sizing:border-box;
+}
+
+/*middleには板書などを書く(縦14マス)*/
+.middle{
+    height: 14.0rem;
+    top: 2.0rem;}
+/*bottomには補足や意味調べを書く(下約3分の1なので8マス)*/
+.bottom{
+/*サイズ設定*/
+    width: 30.0rem;
+    height: 8.0rem;
+    top: 16.0rem;
+/*下に下線を引いてしまうと二重描画となるので書かない*/
+    border: transparent;
+}
+.note__header {
+    height: 23.9rem;
+    width: 3.0rem;
+    padding: 1.0rem;
+    border-left: solid 1px #908d8d;
+    background-color: #ffffff;
+    box-sizing: border-box;}
+
+/*文字装飾*/
+/*文字協調など*/
+
+.title{text-align: center;
+    font-weight: 700;}
+
+.author{
+    text-align: right;
+    padding-bottom: 1.1em;}
+.text-sub{
+    color: #999999;
+    padding-top: 1.5em;
+    padding-bottom: 1.4em;}
+.text-imp{font-weight: 900;}
+
+/*傍線など*/
+.line-bd , .line-2bd , .line-dot , .line-2dot , .line-cut , .line-2cut , .line-bd-side , .line-cut-side , .line-dot-side , .line-cancel , .line-circle , .line-square , .marker-blue , .marker-pink , .marker-yellow , .marker-orange , .marker-green{
+    display:inline-block;
+    position: relative;
+    padding: 0rem;
+    margin: 0rem;
+    box-sizing: border-box;}
+
+.line-bd::before , .line-2bd::before , .line-2bd::after , .line-dot::before , .line-2dot::before , .line-2dot::after , .line-cut::before , .line-2cut::before , .line-2cut::after , .line-bd-side::before , .line-bd-side::after , .line-dot-side::before , .line-dot-side::after , .line-cut-side::before , .line-cut-side::after , .line-cancel::before , .line-circle::before , .line-square::before , .marker-blue::before , .marker-blue::after , .marker-pink::before , .marker-pink::after , .marker-yellow::before , .marker-yellow::after , .marker-orange::before , .marker-orange::after , .marker-green::before , .marker-green::after{
+    content: "";
+    position: absolute;
+    left: 0rem;
+    right: 0rem;
+    bottom: 0rem;
+    top: 0rem;}
+
+.line-bd::before , .line-2bd::before , .line-2bd::after{border-right: solid 1px #333333;}
+.line-2bd::after , .line-2dot::after , .line-2cut::after , .marker-blue::after , .marker-pink::after , .marker-yellow::after , .marker-orange::after , .marker-green::before , .marker-green::after{right: -5px;}
+.line-dot::before , .line-2dot::before , .line-2dot::after{border-right: dotted 2px #333333;}
+.line-cut::before , .line-2cut::before , .line-2cut::after{border-right: dashed 2px #333333;}
+.line-bd-side::before , .line-bd-side::after{
+    border-right: solid 1px #333333;
+    border-left: solid 1px #333333;}
+.line-dot-side::before , .line-dot-side::after{
+    border-right: dotted 1px #333333;
+    border-left: dotted 1px #333333;}
+.line-cut-side::before , .line-cut-side::after{
+    border-right: dashed 1px #333333;
+    border-left: dashed 1px #333333;}
+
+.line-cancel::before{border-right: solid 1px #333333;}
+.line-cancel::before{right: 0.4rem;}
+.line-circle::before{
+    border: solid 1px #333333;
+    border-radius: 1.0rem ;
+}
+.line-square::before{border: solid 1px #333333;}
+
+/*マーカー*/
+.marker-blue::before , .marker-blue::after , .marker-pink::before , .marker-pink::after , .marker-yellow::before , .marker-yellow::after , .marker-orange::before , .marker-orange::after , .marker-green::before , .marker-green::after{border-right-width: 0.15rem; border-left-width: 0.15rem;}
+.marker-blue::before , .marker-blue::after{border-right-color: rgba(0, 78, 255, 0.6);}
+.marker-pink::before , .marker-pink::after{border-right-color: rgba(239, 15, 221, 0.6);}
+.marker-yellow::before , .marker-yellow::after{border-right-color: rgba(220, 245, 23, 0.6);}
+.marker-orange::before , .marker-orange::after {border-right-color: rgba(240, 144, 13, 0.6);}
+.marker-green::before , .marker-green::after{border-right-color: rgba(47, 229, 23, 0.6);}
+
+.line-bd-side.marker-blue::before , .line-bd-side.marker-blue::after , .line-bd-side.marker-pink::before , .line-bd-side.marker-pink::after , .line-bd-side.marker-yellow::before , .line-bd-side.marker-yellow::after , .line-bd-side.marker-orange::before , .line-bd-side.marker-orange::after , .line-bd-side.marker-green::before , .line-bd-side.marker-green::after.line-cut-side.marker-blue::before , .line-cut-side.marker-blue::after , .line-cut-side.marker-pink::before , .line-cut-side.marker-pink::after , .line-cut-side.marker-yellow::before , .line-cut-side.marker-yellow::after , .line-cut-side.marker-orange::before , .line-cut-side.marker-orange::after , .line-cut-side.marker-green::before , .line-cut-side.marker-green::after.line-dot-side.marker-blue::before , .line-dot-side.marker-blue::after , .line-dot-side.marker-pink::before , .line-dot-side.marker-pink::after , .line-dot-side.marker-yellow::before , .line-dot-side.marker-yellow::after , .line-dot-side.marker-orange::before , .line-dot-side.marker-orange::after , .line-dot-side.marker-green::before , .line-dot-side.marker-green::after{border-left-width: 0.15rem; border-right-width: 0.15rem;}
+
+.line-bd-side.marker-blue::after , .line-bd-side.marker-blue::before , .line-dot-side.marker-blue::before , .line-dot-side.marker-blue::after , .line-cut-side.marker-blue::before , .line-cut-side.marker-blue::after {border-right-color: rgba(0, 78, 255, 0.6); border-left-color: rgba(0, 78, 255, 0.6);}
+
+.line-bd-side.marker-pink::after , .line-bd-side.marker-pink::before , .line-dot-side.marker-pink::before , .line-dot-side.marker-pink::after , .line-cut-side.marker-pink::before , .line-cut-side.marker-pink::after{border-right-color: rgba(239, 15, 221, 0.6); border-left-color: rgba(239, 15, 221, 0.6);}
+
+.line-bd-side.marker-yellow::after , .line-bd-side.marker-yellow::before , .line-dot-side.marker-yellow::before , .line-dot-side.marker-yellow::after , .line-cut-side.marker-yellow::before , .line-cut-side.marker-yellow::after {border-right-color: rgba(220, 245, 23, 0.6); border-left-color: rgba(220, 245, 23, 0.6);}
+
+.line-bd-side.marker-orange::after , .line-bd-side.marker-orange::before , .line-dot-side.marker-orange::before , .line-dot-side.marker-orange::after , .line-cut-side.marker-orange::before , .line-cut-side.marker-orange::after {border-right-color: rgba(240, 144, 13, 0.6); border-left-color: rgba(240, 144, 13, 0.6);}
+
+.line-bd-side.marker-green::after , .line-bd-side.marker-green::before , .line-dot-side.marker-green::before , .line-dot-side.marker-green::after , .line-cut-side.marker-green::before , .line-cut-side.marker-green::after {border-right-color: rgba(47, 229, 23, 0.6); border-left-color: rgba(47, 229, 23, 0.6);}
+
+.line-circle.marker-blue::before , .line-circle.marker-blue::after , .line-circle.marker-pink::before , .line-circle.marker-pink::after , .line-circle.marker-yellow::before , .line-circle.marker-yellow::after , .line-circle.marker-orange::before , .line-circle.marker-orange::after , .line-circle.marker-green::before , .line-circle.marker-green::after{border-width: 0.15rem;}
+
+.line-circle.marker-blue::after , .line-circle.marker-blue::before{border-color: rgba(0, 78, 255, 0.6);}
+.line-circle.marker-pink::after , .line-circle.marker-pink::before{border-color: rgba(239, 15, 221, 0.6);}
+.line-circle.marker-yellow::after , .line-circle.marker-yellow::before{border-color: rgba(220, 245, 23, 0.6);}
+.line-circle.marker-orange::after , .line-circle.marker-orange::before{border-color: rgba(240, 144, 13, 0.6);}
+.line-circle.marker-green::after , .line-circle.marker-green::before{border-color: rgba(47, 229, 23, 0.6);}
+
+.line-square.marker-blue::before , .line-square.marker-blue::after , .line-square.marker-pink::before , .line-square.marker-pink::after , .line-square.marker-yellow::before , .line-square.marker-yellow::after , .line-square.marker-orange::before , .line-square.marker-orange::after , .line-square.marker-green::before , .line-square.marker-green::after{border-width: 0.15rem;}
+
+.line-square.marker-blue::before , .line-square.marker-blue::after{border-color: rgba(0, 78, 255, 0.6);}
+.line-square.marker-pink::before , .line-square.marker-pink::after{border-color: rgba(239, 15, 221, 0.6);}
+.line-square.marker-yellow::before , .line-square.marker-yellow::after{border-color: rgba(220, 245, 23, 0.6);}
+.line-square.marker-orange::before , .line-square.marker-orange::after{border-color: rgba(240, 144, 13, 0.6);}
+.line-square.marker-green::before , .line-square.marker-green::after{border-color: rgba(47, 229, 23, 0.6);}
+
+.marker-blue.bg{background-color: rgba(0, 78, 255, 0.6);}
+.marker-pink.bg{background-color: rgba(239, 15, 221, 0.6);}
+.marker-yellow.bg{background-color: rgba(220, 245, 23, 0.6);}
+.marker-orange.bg{background-color: rgba(240, 144, 13, 0.6);}
+.marker-green.bg{background-color: rgba(47, 229, 23, 0.6);}
+
+/*ペン*/
+.pen-black , .pen-red , .pen-blue , .pen-green{font-weight: 700;}
+/*細字対応のフォントにする*/
+.ballpen-black , .ballpen-red , .ballpen-blue , .ballpen-green{font-family: "monoSansCJKjp-Thin-plus",monospace;}
+.ballpen-black , .pen-black{color: #000000;}
+.ballpen-red , .pen-red{color: #af0000;}
+.ballpen-blue , .pen-blue{color: #0008cc;}
+.ballpen-green , .pen-green{color: #00cc2f;}
+
+/*文字インデント*/
+.char__space-0, .char__space-1 , .char__space-2 , .char__space-3 , .char__space-4 , .char__space-5 , .char__space-6 , .char__space-7 , .char__space-8 , .char__space-9 , .char__space-10 , .char__space-11 , .char__space-12 , .char__space-13{
+    margin-bottom: 0.0rem;
+    margin-left: 0.0rem;
+    box-sizing: border-box;}
+
+.char__space-0{margin-top: 0.0rem;}
+.char__space-1{margin-top: 1.0rem;}
+.char__space-2{margin-top: 2.0rem;}
+.char__space-3{margin-top: 3.0rem;}
+.char__space-4{margin-top: 4.0rem;}
+.char__space-5{margin-top: 5.0rem;}
+.char__space-6{margin-top: 6.0rem;}
+.char__space-7{margin-top: 7.0rem;}
+.char__space-8{margin-top: 8.0rem;}
+.char__space-9{margin-top: 9.0rem;}
+.char__space-10{margin-top:10.0rem;}
+.char__space-11{margin-top: 11.0rem;}
+.char__space-12{margin-top: 12.0rem;}
+.char__space-13{margin-top: 13.0rem;}
