@@ -1,19 +1,7 @@
-/*
-**Name:のぉとていく(Chihiro2.1)
-**Discription:縦書き授業用ノートを再現したwebテンプレート
-**Version:2.1
-**Date:2018/01/01/21:46/
-**Author:深窓の姫君
-**Link:http://moest.0am.jp/
-**Link:https://moestudio2017.github.io/Chihiro/
-**Ad:たてよこwebアワード2017応募作品
-**Link:https://tategaki.github.io/awards/
-*/
-
 /*フォント設定*/
 /*opentypeとwoffサポート*/
 /*フォントはNotoSansMonoCJKjpをサブセット化＆縦書き対応にして改変したものを使用*/
-/*横書き用「monoSansCJKjp」*/
+/*横書き用"monoSansCJKjp"*/
 @font-face{
     font-family: "monoSansCJKjp";
     font-style: normal;
